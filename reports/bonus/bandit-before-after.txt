@@ -1,0 +1,18 @@
+Bandit before/after comparison for the B301 pickle fix
+
+Command: python -m bandit -ll -ii -r . -f json
+
+B301 findings before the patch: 2
+B301 findings after the patch:  1
+
+Total findings before the patch: 53
+Total findings after the patch:  52
+
+Remaining B301 finding (not part of this patch):
+  ./dockerized_labs/software_integrity_lab/app.py:44
+
+Removed by the patch:
+  ./dockerized_labs/insec_des_lab/main.py:40
+
+Severity totals before: Medium 30, High 23
+Severity totals after:  Medium 29, High 23

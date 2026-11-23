@@ -1,0 +1,33 @@
+Run started:2026-11-23 09:25:28.900835+00:00
+
+Test results:
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./dockerized_labs/software_integrity_lab/app.py:44:20
+43	            token = base64.b64decode(token)
+44	            admin = pickle.loads(
+45	                token
+46	            )  # Intentionally vulnerable to pickle deserialization
+47	            if admin.admin == 1:
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 6418
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 0
+		Medium: 1
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 0
+		High: 1
+Files skipped (0):
